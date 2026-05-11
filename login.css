@@ -8,16 +8,26 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: var(--font-main);
   color: var(--text-main);
   background: linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.3)),
     url("./LOGIN PAGE.png")
       center / cover no-repeat fixed;
+  overscroll-behavior-y: contain;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 input,
@@ -28,11 +38,28 @@ a {
   font-family: var(--font-main);
 }
 
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  font-size: 16px;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
 .auth-page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   place-items: center;
   padding: 1.5rem;
+  padding-top: max(1.5rem, env(safe-area-inset-top));
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
 }
 
 .auth-card {
